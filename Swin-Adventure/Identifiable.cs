@@ -1,10 +1,8 @@
-﻿using System;
-using System.Collections.Generic;
-using System.Text;
+﻿using System.Collections.Generic;
 
 namespace Swin_Adventure
 {
-    class Identifiable
+    public class Identifiable
     {
         private List<string> _identifiers = new List<string>();
 
