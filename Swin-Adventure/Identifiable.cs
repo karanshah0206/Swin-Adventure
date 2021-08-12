@@ -18,7 +18,7 @@ namespace Swin_Adventure
         {
             foreach (string ident in _identifiers)
             {
-                if (id == ident)
+                if (id.ToLower() == ident)
                     return true;
             }
             return false;
