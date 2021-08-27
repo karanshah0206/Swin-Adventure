@@ -8,27 +8,19 @@ namespace Swin_Adventure
 
         public Identifiable(string[] idents)
         {
-            foreach (string id in idents)
-            {
-                _identifiers.Add(id.ToLower());
-            }
+            foreach (string id in idents) _identifiers.Add(id.ToLower());
         }
 
         public bool AreYou(string id)
         {
             foreach (string ident in _identifiers)
-            {
-                if (id.ToLower() == ident)
-                    return true;
-            }
+                if (id.ToLower() == ident) return true;
             return false;
         }
 
         public string FirstId
         {
-            get {
-                return _identifiers.Count > 0 ? _identifiers[0] : "";
-            }
+            get { return _identifiers.Count > 0 ? _identifiers[0] : ""; }
         }
 
         public void AddIdentifier(string id)
