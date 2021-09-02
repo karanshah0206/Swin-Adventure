@@ -2,11 +2,11 @@
 
 namespace Swin_Adventure
 {
-    abstract class Game
+    abstract class Game : Identifiable
     {
         private string _name, _description;
 
-        public Game(string[] ids, string name, string desc)
+        public Game(string[] ids, string name, string desc) : base(ids)
         {
             _name = name;
             _description = desc;
@@ -19,12 +19,12 @@ namespace Swin_Adventure
 
         public string ShortDescription
         {
-            get { return ""; }
+            get { return "a " + _name + " (" + base.FirstId + ")"; }
         }
 
         virtual public string FullDescription
         {
-            get { return ""; }
+            get { return _description; }
         }
     }
 }
