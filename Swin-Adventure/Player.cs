@@ -4,7 +4,7 @@ using System.Text;
 
 namespace Swin_Adventure
 {
-    class Player : Game
+    public class Player : Game
     {
         private Inventory _inventory = new Inventory();
 

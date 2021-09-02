@@ -1,6 +1,6 @@
 ﻿namespace Swin_Adventure
 {
-    abstract class Game : Identifiable
+    public abstract class Game : Identifiable
     {
         private string _name, _description;
 

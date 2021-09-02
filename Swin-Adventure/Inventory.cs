@@ -2,7 +2,7 @@
 
 namespace Swin_Adventure
 {
-    class Inventory
+    public class Inventory
     {
         private List<Item> _items = new List<Item>();
 
