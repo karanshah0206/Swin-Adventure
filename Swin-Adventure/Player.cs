@@ -12,11 +12,17 @@ namespace Swin_Adventure
         { }
 
         public Game Locate(string id)
-        { return null; }
+        {
+            if (this.AreYou(id)) { return this; }
+            if (_inventory.HasItem(id)) { return _inventory.Fetch(id); }
+            return null;
+        }
 
         public override string FullDescription
         {
-            get { return ""; }
+            get {
+                return "You are carrying:\n" + _inventory.ItemList;
+            }
         }
 
         public Inventory Inventory
