@@ -1,6 +1,4 @@
-﻿using System;
-
-namespace Swin_Adventure
+﻿namespace Swin_Adventure
 {
     abstract class Game : Identifiable
     {
