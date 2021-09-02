@@ -7,8 +7,8 @@ namespace NUnitTests
     public class InventoryObjUnitTests
     {
         private Inventory _inventory;
-        Item i1 = new Item(new string[] { "shovel" }, "wooden shovel", "A Weak Digging Tool");
-        Item i2 = new Item(new string[] { "spear", "javelin" }, "jade spear", "A dead deity's priceless weapon");
+        private Item i1 = new Item(new string[] { "shovel" }, "wooden shovel", "A Weak Digging Tool");
+        private Item i2 = new Item(new string[] { "spear", "javelin" }, "jade spear", "A dead deity's priceless weapon");
 
         [SetUp]
         public void Setup()
