@@ -1,8 +1,4 @@
-﻿using System;
-using System.Collections.Generic;
-using System.Text;
-
-namespace Swin_Adventure
+﻿namespace Swin_Adventure
 {
     public class Player : Game
     {
