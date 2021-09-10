@@ -52,7 +52,7 @@ namespace NUnitTests
         [Test]
         public void TestPlayerFullDescription()
         {
-            Assert.AreEqual("You are carrying:\n\ta wooden shovel (shovel)\n\ta jade spear (spear)\n", player.FullDescription);
+            Assert.AreEqual("You are Odin Widely Revered Mythical King of Norse Gods\nYou are carrying:\n\ta wooden shovel (shovel)\n\ta jade spear (spear)\n", player.FullDescription);
         }
     }
 }
