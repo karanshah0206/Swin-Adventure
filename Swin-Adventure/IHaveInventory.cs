@@ -2,7 +2,7 @@
 {
     interface IHaveInventory
     {
-        void Locate(string id);
+        Game Locate(string id);
         string Name { get; }
     }
 }
