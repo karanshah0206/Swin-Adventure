@@ -1,6 +1,6 @@
 ﻿namespace Swin_Adventure
 {
-    class Look : Command
+    public class Look : Command
     {
         public Look() : base(new string[] { "look" })
         { }
