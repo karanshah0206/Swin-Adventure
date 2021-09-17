@@ -7,7 +7,7 @@
 
         public override string Execute(Player p, string[] text)
         {
-            if (text.Length != 3 || text.Length != 5) return "I don't know how to look at that.";
+            if (text.Length != 3 && text.Length != 5) return "I don't know how to look at that.";
             if (text[0] != "look") return "Error in look input.";
             if (text[1] != "at") return "What do you want to look at?";
             if (text.Length == 5 && text[3] != "in") return "What do you want to look in?";
