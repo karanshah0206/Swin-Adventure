@@ -1,6 +1,6 @@
 ﻿namespace Swin_Adventure
 {
-    public class Bag : Item
+    public class Bag : Item, IHaveInventory
     {
         private Inventory _inventory = new Inventory();
 
