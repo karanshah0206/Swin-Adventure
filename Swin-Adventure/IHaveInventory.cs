@@ -1,6 +1,6 @@
 ﻿namespace Swin_Adventure
 {
-    interface IHaveInventory
+    public interface IHaveInventory
     {
         Game Locate(string id);
         string Name { get; }
