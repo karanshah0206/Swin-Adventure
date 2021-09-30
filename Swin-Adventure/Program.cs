@@ -6,8 +6,9 @@ namespace Swin_Adventure
     {
         static void Main(string[] args)
         {
+            Location loc = new Location(new string[] { "base" }, "Base", "A Starting Point For All Players.");
             string[] playerDetails = GetPlayerDetails();
-            Player player = InitializePlayer(playerDetails[0], playerDetails[1]);
+            Player player = InitializePlayer(playerDetails[0], playerDetails[1], loc);
             Look look = new Look();
 
             while (true) {
@@ -37,9 +38,9 @@ namespace Swin_Adventure
             return new string[] { name, desc };
         }
 
-        static Player InitializePlayer(string name, string desc)
+        static Player InitializePlayer(string name, string desc, Location loc)
         {
-            Player player = new Player(name, desc);
+            Player player = new Player(name, desc, loc);
 
             Item i1 = new Item(new string[] { "shovel" }, "Shovel", "Tool to dig or break boxes");
             Item i2 = new Item(new string[] { "sword" }, "Sword", "Weapon for self-defence");
