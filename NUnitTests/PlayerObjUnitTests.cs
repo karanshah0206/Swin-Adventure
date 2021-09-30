@@ -7,13 +7,14 @@ namespace NUnitTests
     class PlayerObjUnitTests
     {
         private Player player;
+        private Location loc = new Location(new string[] { "base" }, "Base", "A Starting Point For All Players");
         private Item i1 = new Item(new string[] { "shovel" }, "wooden shovel", "A Weak Digging Tool");
         private Item i2 = new Item(new string[] { "spear", "javelin" }, "jade spear", "A dead deity's priceless weapon");
 
         [SetUp]
         public void Setup()
         {
-            player = new Player("Odin", "Widely Revered Mythical King of Norse Gods");
+            player = new Player("Odin", "Widely Revered Mythical King of Norse Gods", loc);
             player.Inventory.Put(i1);
             player.Inventory.Put(i2);
         }

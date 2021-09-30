@@ -8,6 +8,7 @@ namespace NUnitTests
     {
         private Look lookCommand;
         private Player player;
+        private Location loc = new Location(new string[] { "base" }, "Base", "A Starting Point For All Players");
         private Item i1 = new Item(new string[] { "gem" }, "ruby trinket", "A priceless magical gem");
         private Item i2 = new Item(new string[] { "spear", "javelin" }, "jade spear", "A dead deity's weapon");
         private Bag bag = new Bag(new string[] { "bag" }, "spear bag", "A bag that contains spears.");
@@ -16,7 +17,7 @@ namespace NUnitTests
         public void Setup()
         {
             lookCommand = new Look();
-            player = new Player("Odin", "Widely Revered Mythical King of Norse Gods");
+            player = new Player("Odin", "Widely Revered Mythical King of Norse Gods", loc);
             player.Inventory.Put(i1);
             bag.Inventory.Put(i2);
             player.Inventory.Put(bag);
