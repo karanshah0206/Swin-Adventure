@@ -50,13 +50,13 @@ namespace Swin_Adventure
 
         static void RecurringCommands(Player player)
         {
-            Look look = new Look();
+            Processor cmdProcessor = new Processor();
 
             while (true)
             {
                 Console.Write("Command> ");
                 string[] command = Console.ReadLine().Trim().Split(' ');
-                string response = look.Execute(player, command);
+                string response = cmdProcessor.Execute(player, command);
                 Console.WriteLine(response);
             }
         }
