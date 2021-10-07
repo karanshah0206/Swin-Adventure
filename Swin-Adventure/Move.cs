@@ -7,13 +7,13 @@
 
         public override string Execute(Player p, string[] text)
         {
-            if (text.Length != 2) return "I don't know how to move there.";
+            if (text.Length != 2) return "Error in move input.";
 
             switch (text[0])
             {
                 case "move": case "head": case "go": return MoveToLoc(p, p.Location.FindExitPath(text[1]));
                 case "leave": return LeaveLoc(p, p.Location.FindEntryPath(text[1]));
-                default: return "Error in move input";
+                default: return "Error in move input.";
             }
         }
 
