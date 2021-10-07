@@ -23,6 +23,9 @@
         { get { return _destination; } }
 
         public bool IsTraversable
-        { get { return !_pathLocked; } }
+        {
+            get { return !_pathLocked; }
+            set { _pathLocked = !value; }
+        }
     }
 }
