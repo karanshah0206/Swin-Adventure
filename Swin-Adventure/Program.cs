@@ -16,7 +16,6 @@ namespace Swin_Adventure
             Location start = new Location(new string[] { "base", "start" }, "Base", "A Starting Point For All Players.");
             Location secretRoom = new Location(new string[] { "secret" }, "Secret Room", "A Room Of Hidden Mysteries.");
             Path tunnel = new Path(new string[] { "north", "tunnel" }, "Tunnel", "Connects Base To Secret Room.", start, secretRoom);
-            secretRoom.LeavePath = tunnel;
             return tunnel;
         }
 
