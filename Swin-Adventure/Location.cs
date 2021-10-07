@@ -6,9 +6,10 @@ namespace Swin_Adventure
     {
         private Inventory _inventory = new Inventory();
         private List<Path> _exitPaths = new List<Path>();
-        private Path _entryPath;
+        private List<Path> _entryPaths = new List<Path>();
+
         public Location(string[] ids, string name, string desc) : base (ids, name, desc)
-        { _entryPath = null; }
+        { }
 
         public Game Locate(string id)
         {
@@ -23,14 +24,17 @@ namespace Swin_Adventure
             return null;
         }
 
+        public Path FindEntryPath(string id)
+        {
+            foreach (Path p in _entryPaths) if (p.AreYou(id)) return p;
+            return null;
+        }
+
         public void AddExitPath(Path path)
         { _exitPaths.Add(path); }
 
-        public Path LeavePath
-        {
-            get { return _entryPath; }
-            set { _entryPath = value; }
-        }
+        public void AddEntryPath(Path path)
+        { _entryPaths.Add(path); }
 
         public Inventory Inventory
         { get { return _inventory; } }
