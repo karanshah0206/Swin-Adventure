@@ -36,6 +36,9 @@ namespace Swin_Adventure
         public void AddEntryPath(Path path)
         { _entryPaths.Add(path); }
 
+        public override string FullDescription
+        { get { return Name + " is " + base.FullDescription + "\nThis location contains:\n" + _inventory.ItemList; } }
+
         public Inventory Inventory
         { get { return _inventory; } }
     }

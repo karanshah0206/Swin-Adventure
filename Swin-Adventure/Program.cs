@@ -51,7 +51,7 @@ namespace Swin_Adventure
         static void RecurringCommands(Player player)
         {
             Processor cmdProcessor = new Processor();
-
+            Console.WriteLine("Starting Location: " + player.Location.ShortDescription);
             while (true)
             {
                 Console.Write("Command> ");
