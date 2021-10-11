@@ -10,6 +10,7 @@ namespace Swin_Adventure
         {
             _commands.Add(new Look());
             _commands.Add(new Move());
+            _commands.Add(new Transfer());
         }
 
         public string Execute(Player p, string[] text)
