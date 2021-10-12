@@ -6,6 +6,7 @@ namespace Swin_Adventure_GUI
 {
     public partial class Form1 : Form
     {
+        public Player player;
         public Form1()
         {
             InitializeComponent();
@@ -13,14 +14,14 @@ namespace Swin_Adventure_GUI
 
         private void Form1_Load(object sender, EventArgs e)
         {
-            textBox2.Text = "=============== INITIALIZING ===============\r\n";
+            textBox2.AppendText("=============== INITIALIZING ===============\r\n");
             Path p = CreatePath();
-            Player player = CreatePlayer(p.From);
-            textBox2.Text += "READY TO PLAY!\r\n";
-            textBox2.Text += "\r\n=============== INTRODUCTION ===============\r\n";
-            textBox2.Text += player.FullDescription.Replace("\n", "\r\n");
-            textBox2.Text += "Starting location: " + player.Location.Name + "\r\n";
-            textBox2.Text += "\r\n=============== QUERIES ===============\r\n";
+            player = CreatePlayer(p.From);
+            textBox2.AppendText("READY TO PLAY!\r\n");
+            textBox2.AppendText("\r\n=============== INTRODUCTION ===============\r\n");
+            textBox2.AppendText(player.FullDescription.Replace("\n", "\r\n"));
+            textBox2.AppendText("Starting location: " + player.Location.Name + "\r\n");
+            textBox2.AppendText("\r\n=============== QUERIES ===============\r\n");
         }
 
         private Path CreatePath()
@@ -28,7 +29,7 @@ namespace Swin_Adventure_GUI
             Location start = new Location(new string[] { "base", "start" }, "Base", "A Starting Point For All Players.");
             Location secretRoom = new Location(new string[] { "secret" }, "Secret Room", "A Room Of Hidden Mysteries.");
             Path tunnel = new Path(new string[] { "north", "tunnel" }, "Tunnel", "Connects Base To Secret Room.", start, secretRoom);
-            textBox2.Text += "Initialized paths...\r\n";
+            textBox2.AppendText("Initialized paths...\r\n");
             return tunnel;
         }
 
@@ -36,7 +37,7 @@ namespace Swin_Adventure_GUI
         {
             Player player = new Player("Karan", "A Mighty Programmer", loc);
             InitializePlayer(player);
-            textBox2.Text += "Initialized player...\r\n";
+            textBox2.AppendText("Initialized player...\r\n");
             return player;
         }
 
@@ -49,6 +50,17 @@ namespace Swin_Adventure_GUI
 
             player.Inventory.Put(i1); player.Inventory.Put(i2);
             bag.Inventory.Put(i3); player.Inventory.Put(bag);
+        }
+
+        private void button1_Click(object sender, EventArgs e)
+        {
+            textBox2.AppendText("\r\nQuery: " + textBox1.Text.Trim() + "\r\n");
+            Processor cmdProcessor = new Processor();
+            string response = cmdProcessor.Execute(player, textBox1.Text.Trim().Split(' ')).Replace("\n", "\r\n");
+            textBox2.AppendText(response);
+            if (!response.EndsWith("\n")) textBox2.AppendText("\r\n");
+            textBox1.Text = "";
+            if (response == Quit.QuitMessage) Close();
         }
     }
 }
