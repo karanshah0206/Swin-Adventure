@@ -7,4 +7,10 @@
     <UseWindowsForms>true</UseWindowsForms>
   </PropertyGroup>
 
+  <ItemGroup>
+    <Reference Include="Swin-Adventure">
+      <HintPath>..\Swin-Adventure\bin\Debug\netcoreapp3.1\Swin-Adventure.dll</HintPath>
+    </Reference>
+  </ItemGroup>
+
 </Project>
