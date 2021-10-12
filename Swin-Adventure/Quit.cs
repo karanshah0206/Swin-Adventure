@@ -1,6 +1,6 @@
 ﻿namespace Swin_Adventure
 {
-    class Quit : Command
+    public class Quit : Command
     {
         private static string _quitMessage = "See ya later!";
         public Quit() : base (new string[] { "quit", "exit" })
