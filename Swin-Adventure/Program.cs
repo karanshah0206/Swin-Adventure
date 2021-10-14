@@ -6,17 +6,20 @@ namespace Swin_Adventure
     {
         static void Main(string[] args)
         {
-            Path p = CreatePath();
-            Player player = CreatePlayer(p.From);
+            Player player = InitPlayer();
             RecurringCommands(player);
         }
 
-        static Path CreatePath()
+        static Player InitPlayer()
         {
-            Location start = new Location(new string[] { "base", "start" }, "Base", "A Starting Point For All Players.");
-            Location secretRoom = new Location(new string[] { "secret" }, "Secret Room", "A Room Of Hidden Mysteries.");
-            Path tunnel = new Path(new string[] { "north", "tunnel" }, "Tunnel", "Connects Base To Secret Room.", start, secretRoom);
-            return tunnel;
+            Location l1 = new Location(new string[] { "base" }, "Base", "A Starting Point For All Players.");
+            Location l2 = new Location(new string[] { "secret" }, "Secret Room", "A Room Of Hidden Mysteries");
+            Location l3 = new Location(new string[] { "cave" }, "Cave", "An Ancient Cave Full Of Suprises");
+            l1.AddPath(new Path(new string[] { "north" }, "North", "a small door", l2));
+            l1.AddPath(new Path(new string[] { "south" }, "South", "a grassland", l3));
+            l2.AddPath(new Path(new string[] { "south" }, "South", "a small door", l1));
+            l3.AddPath(new Path(new string[] { "north" }, "North", "a grassland", l1));
+            return CreatePlayer(l1);
         }
 
         static Player CreatePlayer(Location loc)

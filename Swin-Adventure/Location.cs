@@ -5,8 +5,7 @@ namespace Swin_Adventure
     public class Location : Game, IHaveInventory
     {
         private Inventory _inventory = new Inventory();
-        private List<Path> _exitPaths = new List<Path>();
-        private List<Path> _entryPaths = new List<Path>();
+        private List<Path> _paths = new List<Path>();
 
         public Location(string[] ids, string name, string desc) : base (ids, name, desc)
         { }
@@ -18,23 +17,14 @@ namespace Swin_Adventure
             return null;
         }
 
-        public Path FindExitPath(string id)
+        public Path FindPath(string id)
         {
-            foreach (Path p in _exitPaths) if (p.AreYou(id)) return p;
+            foreach (Path p in _paths) if (p.AreYou(id)) return p;
             return null;
         }
 
-        public Path FindEntryPath(string id)
-        {
-            foreach (Path p in _entryPaths) if (p.AreYou(id)) return p;
-            return null;
-        }
-
-        public void AddExitPath(Path path)
-        { _exitPaths.Add(path); }
-
-        public void AddEntryPath(Path path)
-        { _entryPaths.Add(path); }
+        public void AddPath(Path path)
+        { _paths.Add(path); }
 
         public override string FullDescription
         { get { return Name + " is " + base.FullDescription + "\nThis location contains:\n" + _inventory.ItemList; } }
